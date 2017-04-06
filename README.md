@@ -8,7 +8,7 @@ y2x
 recordtype一覧の表示
 
 ```
-y2x works.yml --list-types
+y2x data.yml --list-types
 # conferences
 # conferences_ja
 # papers
@@ -19,7 +19,7 @@ y2x works.yml --list-types
 特定のrecordtypeのentry一覧の表示
 
 ```
-y2x works.yml --list-entries conferences_ja
+y2x data.yml --list-entries conferences_ja
 # type
 # title
 # authors
@@ -30,7 +30,7 @@ y2x works.yml --list-entries conferences_ja
 特定のrecordtypeをtext形式に変換
 
 ```
-y2x works.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conferences_ja --reverse-index
+y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conferences_ja --reverse-index
 # 11. 長野祥大, 渡邊紀文, 武藤佳恭, (2013) "自発発火神経回路モデルを用いた注意下の神経回路の構築", 包括脳ネットワーク 夏のワークショップ.
 # 10. 長野祥大, 渡邊紀文, 青山敦, (2014) "視覚的注意の変化に対応する発火頻度分布入力時の自発発火回路の分析", 脳と心のメカニズム 第14回冬のワークショップ.
 # ...
@@ -39,7 +39,7 @@ y2x works.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type
 特定のrecordtypeをviewを記述したファイルを使って変換
 
 ```
-y2x works.yml --viewfile bibtex.view --type conferences_ja
+y2x data.yml --viewfile bibtex.view --type conferences_ja
 # @inproceedings{長野祥大2013,
 #   title={自発発火神経回路モデルを用いた注意下の神経回路の構築},
 #   author={長野祥大, 渡邊紀文, 武藤佳恭},
