@@ -128,22 +128,33 @@ recordtypeによってエントリの種類が変わるため，データとし�
 
 **[パッケージ版想定interface]**
 
-下みたいな感じで動くようにしたい
+下みたいな感じで動くようにしたい．
 
 ```javascript
 const Y2X = require('y2x')
 
 Y2X('data.yml')
-  .recordType('all')
+  .typeIs(['papers', 'conferences'])
   .view({
     papers: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
     conferences: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
   })
-  .author('Yoshihiro Nagano')
+  .authoredBy('Yoshihiro Nagano')
   .sortBy('year', reverse=true)
   .reverseIndex()
   .render()
 ```
+
+filterに関しては`Y2X.contains(el) => bool`みたいな関数を論理和で追加していく感じで，`render()`が実行されたタイミングで
+
+```javascript
+records.filter((el) => {
+  if ( this.contains(el) ) { return el }
+})
+```
+
+を実行して，O(N)でfilterされるようにする．
+
 
 **[目指すファイル構成]**
 
