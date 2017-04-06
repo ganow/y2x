@@ -20,7 +20,7 @@ this project is heavily under development and unstable.
     --offset <n>     Offset for index
 ```
 
-recordtype一覧の表示
+**[未実装]** recordtype一覧の表示
 
 ```
 y2x data.yml --list-types
@@ -31,7 +31,7 @@ y2x data.yml --list-types
 # ...
 ```
 
-特定のrecordtypeのentry一覧の表示
+**[未実装]** 特定のrecordtypeのentry一覧の表示
 
 ```
 y2x data.yml --list-entries conferences_ja
@@ -42,7 +42,7 @@ y2x data.yml --list-entries conferences_ja
 # ...
 ```
 
-特定のrecordtypeをtext形式に変換
+**[実装済]** 特定のrecordtypeをtext形式に変換
 
 ```
 y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conferences_ja --reverse-index
@@ -51,7 +51,7 @@ y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type 
 # ...
 ```
 
-特定のrecordtypeをviewを記述したファイルを使って変換
+**[未実装]** 特定のrecordtypeをviewを記述したファイルを使って変換
 
 ```
 y2x data.yml --viewfile bibtex.view --type conferences_ja
