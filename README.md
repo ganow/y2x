@@ -147,7 +147,7 @@ Y2X('data.yml')
 
 **[目指すファイル構成]**
 
-CLI部分とコアのロジック部分を`bin/y2x-cli.js`と`y2x.js`に分離する．
+CLI部分とコアのロジック部分を`bin/y2x-cli.js`と`lib/y2x.js`に分離する．
 
 ```
 y2x/
