@@ -144,3 +144,31 @@ Y2X('data.yml')
   .reverseIndex()
   .render()
 ```
+
+**[目指すファイル構成]**
+
+CLI部分とコアのロジック部分を`bin/y2x-cli.js`と`y2x.js`に分離する．
+
+```
+y2x/
+  bin/
+    y2x-cli.js
+  lib/
+    y2x.js
+  index.js
+```
+
+`index.js`のイメージ:
+
+```javascript
+var y2x = require('./lib/y2x.js');
+module.exports = y2x;
+```
+
+`bin/y2x-cli.js`のイメージ:
+
+```javascript
+var program = require('commander')
+const Y2X = require('..')
+...
+```
