@@ -67,15 +67,18 @@ function main() {
   program
     .version(require('./package.json').version)
     .usage('<file> [options]')
-    .option('--view <text>', 'Format string for each record')
-    .option('--type <text>', 'Record type')
-    .option('--reverse-index', 'Flag for reverse index')
-    .option('--offset <n>', 'Offset for index', parseInt, 1)
+    .option('--view <text>', 'format string for each record')
+    .option('--viewfile <file>', 'file name of format string for each record')
+    .option('--type <text>', 'record type')
+    .option('--reverse-index', 'flag for reverse index')
+    .option('--offset <n>', 'offset for index', parseInt, 1)
     .parse(process.argv);
 
   const filename = program.args[0]
   const recordtype = program.type
-  const view = program.view
+  const view = (program.view) ? program.view : fs.readFileSync(program.viewfile, 'utf-8', (err, file) => {
+    return file
+  }).replace(/\n+$/g,'')
   const offset = program.offset
   const revindex = program.reverseIndex
 

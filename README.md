@@ -20,12 +20,13 @@ npm install -g
 
   Options:
 
-    -h, --help       output usage information
-    -V, --version    output the version number
-    --view <text>    Format string for each record
-    --type <text>    Record type
-    --reverse-index  Flag for reverse index
-    --offset <n>     Offset for index
+    -h, --help         output usage information
+    -V, --version      output the version number
+    --view <text>      format string for each record
+    --viewfile <file>  file name of format string for each record
+    --type <text>      record type
+    --reverse-index    flag for reverse index
+    --offset <n>       offset for index
 ```
 
 **[未実装]** recordtype一覧の表示
@@ -59,7 +60,7 @@ y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type 
 # ...
 ```
 
-**[未実装]** 特定のrecordtypeをviewを記述したファイルを使って変換
+**[実装済]** 特定のrecordtypeをviewを記述したファイルを使って変換
 
 ```
 y2x data.yml --viewfile bibtex.view --type conferences_ja
