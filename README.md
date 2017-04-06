@@ -134,7 +134,7 @@ recordtypeによってエントリの種類が変わるため，データとし�
 const Y2X = require('y2x')
 
 Y2X('data.yml')
-  .type('all')
+  .recordType('all')
   .view({
     papers: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
     conferences: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
