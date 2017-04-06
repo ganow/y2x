@@ -16,7 +16,7 @@ npm install -g
 ## Usage
 
 ```
-  Usage: y2x [options]
+  Usage: y2x <file> [options]
 
   Options:
 
