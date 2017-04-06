@@ -35,20 +35,20 @@ if (String.prototype.format == undefined) {
   }
 }
 
-function stringify(data, view, offset, reverse) {
+function stringify(records, view, offset, reverse) {
 
   if ( offset == null ) { offset = 1 }
   if ( reverse == null ) { reverse = false }
 
-  return data.map((c, id) => {
+  return records.map((r, id) => {
 
-    const c_new = Object.assign({}, c, {
-      id: (reverse) ? data.length - id - 1 + offset : id + offset,
-      authors: c.authors.join(', '),
-      firstauthor: c.authors[0]
+    const r_new = Object.assign({}, r, {
+      id: (reverse) ? records.length - id - 1 + offset : id + offset,
+      authors: r.authors.join(', '),
+      firstauthor: r.authors[0]
     })
 
-    return view.format(c_new)
+    return view.format(r_new)
   })
 }
 
@@ -69,6 +69,7 @@ function main() {
     .usage('<file> [options]')
     .option('--view <text>', 'format string for each record')
     .option('--viewfile <file>', 'file name of format string for each record')
+    .option('--author <text>', 'filter records with specific author')
     .option('--type <text>', 'record type')
     .option('--reverse-index', 'flag for reverse index')
     .option('--offset <n>', 'offset for index', parseInt, 1)
@@ -83,15 +84,23 @@ function main() {
   const revindex = program.reverseIndex
 
   // load file
-
   const file = fs.readFileSync(filename, 'utf-8', (err, file) => {
     return file
   })
   const data = yaml.safeLoad(file)
 
-  // stringify
+  // filter
+  var records = data[recordtype]
+  if ( program.author ) {
+    records = records.filter((r) => {
+      if ( r.authors.indexOf(program.author) >= 0 ) {
+        return r
+      }
+    })
+  }
 
-  const texts = stringify(data[recordtype], view, offset, revindex)
+  // stringify
+  const texts = stringify(records, view, offset, revindex)
   texts.map((t) => {console.log(t)})
 }
 

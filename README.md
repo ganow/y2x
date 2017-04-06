@@ -24,6 +24,7 @@ npm install -g
     -V, --version      output the version number
     --view <text>      format string for each record
     --viewfile <file>  file name of format string for each record
+    --author <text>    filter records with specific author
     --type <text>      record type
     --reverse-index    flag for reverse index
     --offset <n>       offset for index
@@ -79,6 +80,14 @@ y2x data.yml --viewfile bibtex.view --type conferences_ja
 # ...
 ```
 
+**[実装済]** 特定の著者を含むrecordのみ表示
+
+```
+y2x data.yml --view '{id}. {authors}, {title}' --type conferences_ja --author '武藤佳恭'
+# 1. 長野祥大, 渡邊紀文, 武藤佳恭, 自発発火神経回路モデルを用いた注意下の神経回路の構築
+```
+
+
 ## 必要な機能一覧
 
 - 通し番号を昇順・降順で付ける機能
@@ -88,7 +97,7 @@ y2x data.yml --viewfile bibtex.view --type conferences_ja
 - 特定のrecordtypeだけ出力する機能
 	- 実装済み
 - 特定著者のみフィルター
-	- `y2x data.yml --author '長野祥大' ...` みたいな実装でよさそう
+	- 実装済み
 - ソート機能
 	- 典型的なソートとしてrecordtype -> yearとyear -> recordtypeの2種類．
 		- この2つはCLIで提供可能？デフォルトでyearでソートするようにしておけば，recordtypeごとに出したい場合はその回数分スクリプトを叩けば取り急ぎ問題なさそう．
