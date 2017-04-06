@@ -1,7 +1,10 @@
+#!/usr/bin/env node
+
 'use strict'
 
 const fs = require('fs')
 const yaml = require('js-yaml')
+var program = require('commander')
 
 // 存在チェック
 if (String.prototype.format == undefined) {
@@ -50,17 +53,25 @@ function main() {
   // ###### parameters ######
   // ########################
 
-  const filename = 'data.yml'
-  const recordtype = 'conferences_ja'
-  const view = '{id}. {authors}, ({year}) "{title}", {conference}.'
-  // const view = '@inproceedings{{firstauthor}{year},\n' +
-  // '  title={{title}},\n' +
-  // '  author={{authors}},\n' +
-  // '  booktitle={{conference}},\n' +
-  // '  year={{year}}\n' +
-  // '}'
-  const offset = 1
-  const revindex = false
+  // const filename = 'data.yml'
+  // const recordtype = 'conferences_ja'
+  // const view = '{id}. {authors}, ({year}) "{title}", {conference}.'
+  // const offset = 1
+  // const revindex = false
+
+  program
+    .version(require('./package.json').version)
+    .option('--view <text>', 'Format string for each record')
+    .option('--type <text>', 'Record type')
+    .option('--reverse-index', 'Flag for reverse index')
+    .option('--offset <n>', 'Offset for index', parseInt, 1)
+    .parse(process.argv);
+
+  const filename = program.args[0]
+  const recordtype = program.type
+  const view = program.view
+  const offset = program.offset
+  const revindex = program.reverseIndex
 
   // load file
 

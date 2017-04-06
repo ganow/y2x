@@ -1,6 +1,6 @@
 {
   "name": "y2x",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "translate yaml to any format with view string.",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,10 @@
   "author": "Yoshihiro Nagano",
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.9.0",
     "js-yaml": "^3.8.3"
+  },
+  "bin": {
+    "y2x": "index.js"
   }
 }

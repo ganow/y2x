@@ -1,9 +1,24 @@
 y2x
 ===
 
+this project is heavily under development and unstable.
+
 [yaml|json|csv|text]形式で論文データベースを受け取り，任意のview(bibtexやtextなど)で出力する変換器．
 
 ## Usage
+
+```
+  Usage: y2x [options]
+
+  Options:
+
+    -h, --help       output usage information
+    -V, --version    output the version number
+    --view <text>    Format string for each record
+    --type <text>    Record type
+    --reverse-index  Flag for reverse index
+    --offset <n>     Offset for index
+```
 
 recordtype一覧の表示
 
