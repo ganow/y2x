@@ -125,3 +125,20 @@ recordtypeによってエントリの種類が変わるため，データとし�
 **[異常系の処理]**
 
 全体的に異常系の実装ができていない
+
+**[パッケージ版想定interface]**
+
+下みたいな感じで動くようにしたい
+
+```javascript
+Y2X('data.yml')
+  .type('all')
+  .view({
+    papers: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
+    conferences: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
+  })
+  .author('Yoshihiro Nagano')
+  .sortBy('year', reverse=true)
+  .reverseIndex()
+  .render()
+```
