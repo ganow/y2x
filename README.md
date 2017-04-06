@@ -131,6 +131,8 @@ recordtypeによってエントリの種類が変わるため，データとし�
 下みたいな感じで動くようにしたい
 
 ```javascript
+const Y2X = require('y2x')
+
 Y2X('data.yml')
   .type('all')
   .view({
