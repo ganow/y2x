@@ -5,6 +5,14 @@ this project is heavily under development and unstable.
 
 [yaml|json|csv|text]形式で論文データベースを受け取り，任意のview(bibtexやtextなど)で出力する変換器．
 
+## Installation
+
+```
+git clone git@github.com:ganow/y2x.git
+cd y2x
+npm install -g
+```
+
 ## Usage
 
 ```
