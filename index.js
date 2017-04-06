@@ -6,6 +6,11 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 var program = require('commander')
 
+/**
+ * add format string function to str
+ * from: http://phiary.me/javascript-string-format/
+ */
+
 // 存在チェック
 if (String.prototype.format == undefined) {
   /**
@@ -13,7 +18,7 @@ if (String.prototype.format == undefined) {
    */
   String.prototype.format = function(arg)
   {
-    // 置換ファンク
+    // 置換関数
     var rep_fn = undefined
 
     // オブジェクトの場合
@@ -61,6 +66,7 @@ function main() {
 
   program
     .version(require('./package.json').version)
+    .usage('<file> [options]')
     .option('--view <text>', 'Format string for each record')
     .option('--type <text>', 'Record type')
     .option('--reverse-index', 'Flag for reverse index')
@@ -85,8 +91,5 @@ function main() {
   const texts = stringify(data[recordtype], view, offset, revindex)
   texts.map((t) => {console.log(t)})
 }
-
-// ゆくゆくは...
-// 読んだ論文を著者リスト，タイトル，アブスト，代表画像
 
 main()
