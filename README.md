@@ -131,9 +131,10 @@ recordtypeによってエントリの種類が変わるため，データとし�
 下みたいな感じで動くようにしたい．
 
 ```javascript
-const Y2X = require('y2x')
+const loadRecords = require('y2x').loadRecords
 
-Y2X('data.yml')
+const records = loadRecords('data.yml')
+records
   .typeIs(['papers', 'conferences'])
   .view({
     papers: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
@@ -145,11 +146,11 @@ Y2X('data.yml')
   .render()
 ```
 
-filterに関しては`Y2X.contains(el) => bool`みたいな関数を論理和で追加していく感じで，`render()`が実行されたタイミングで
+filterに関しては`Records.contain(el) => bool`みたいな関数を論理和で追加していく感じで，`render()`が実行されたタイミングで
 
 ```javascript
-records.filter((el) => {
-  if ( this.contains(el) ) { return el }
+this.data.filter((el) => {
+  if ( this.contain(el) ) { return el }
 })
 ```
 
