@@ -1,0 +1,14 @@
+{
+  "name": "y2x",
+  "version": "1.0.0",
+  "description": "translate yaml to any format with view string.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yoshihiro Nagano",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^3.8.3"
+  }
+}
