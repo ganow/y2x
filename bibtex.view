@@ -1,0 +1,6 @@
+@inproceedings{{firstauthor}{year},
+  title={{title}},
+  author={{authors}},
+  booktitle={{conference}},
+  year={{year}}
+}
