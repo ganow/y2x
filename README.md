@@ -1,7 +1,5 @@
-stringify (仮)
-==============
-
-**※ 名前をどうするか**
+y2x
+===
 
 [yaml|json|csv|text]形式で論文データベースを受け取り，任意のview(bibtexやtextなど)で出力する変換器．
 
