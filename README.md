@@ -89,6 +89,26 @@ y2x data.yml --view '{id}. {authors}, {title}' --type conference_ja --author '�
 # 1. 長野祥大, 渡邊紀文, 武藤佳恭, 自発発火神経回路モデルを用いた注意下の神経回路の構築
 ```
 
+**[実装済]** パッケージとしてスクリプト内で使用する
+
+
+```javascript
+const loadRecords = require('y2x').loadRecords
+
+const records = loadRecords('data.yml')
+const texts = records
+  .typeOf(['paper', 'conference'])
+  .view({
+    paper: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
+    conference: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
+  })
+  .authoredBy('Yoshihiro Nagano')
+  .sortBy('year', reverse=true)
+  .reverseIndex()
+  .render()
+text.map((el) => console.log(el))
+```
+
 
 ## 必要な機能一覧
 
@@ -128,26 +148,6 @@ recordtypeによってエントリの種類が変わるため，データとし�
 
 全体的に異常系の実装ができていない
 
-**[パッケージ版想定interface]**
-
-下みたいな感じで動くようにしたい．
-
-```javascript
-const loadRecords = require('y2x').loadRecords
-
-const records = loadRecords('data.yml')
-records
-  .typeOf(['paper', 'conference'])
-  .view({
-    paper: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
-    conference: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
-  })
-  .authoredBy('Yoshihiro Nagano')
-  .sortBy('year', reverse=true)
-  .reverseIndex()
-  .render()
-```
-
 filterに関しては`Records.contain(el) => bool`みたいな関数を論理和で追加していく感じで，`render()`が実行されたタイミングで
 
 ```javascript
@@ -158,6 +158,13 @@ this.data.filter((el) => {
 
 を実行して，O(N)でfilterされるようにする．
 
+**[複数エントリでのソート]**
+
+以下が動くようにしたい
+
+```javascript
+records.sortBy(['type', 'year'], reverse=[false, true])
+```
 
 **[目指すファイル構成]**
 
