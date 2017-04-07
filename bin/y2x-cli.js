@@ -25,6 +25,8 @@ function main() {
     .option('--viewfile <file>', 'file name of format string for each record')
     .option('--author <text>', 'filter records with specific author')
     .option('--type <text>', 'record type')
+    .option('--sort-by <text>', 'entry which is used by sort')
+    .option('--reverse', 'flag for reverse sort')
     .option('--reverse-index', 'flag for reverse index')
     .option('--offset <n>', 'offset for index', parseInt, 1)
     .parse(process.argv);
@@ -43,6 +45,8 @@ function main() {
   }
   const author = program.author
   const offset = program.offset
+  const sortEntry = program.sortBy
+  const reverse = program.reverse
   const reverseIndex = program.reverseIndex
 
   var records = loadRecords(filename)
@@ -57,6 +61,14 @@ function main() {
   }
   if ( reverseIndex ) {
     records = records.reverseIndex()
+  }
+
+  if ( typeof sortEntry !== 'undefined' ) {
+    if ( ! reverse ) {
+      records = records.sortBy(sortEntry)
+    } else {
+      records = records.sortBy(sortEntry, reverse)
+    }
   }
 
   const texts = records.render()
