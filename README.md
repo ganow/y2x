@@ -44,7 +44,7 @@ y2x data.yml --list-types
 **[未実装]** 特定のrecordtypeのentry一覧の表示
 
 ```
-y2x data.yml --list-entries conferences_ja
+y2x data.yml --list-entries conference_ja
 # type
 # title
 # authors
@@ -55,7 +55,7 @@ y2x data.yml --list-entries conferences_ja
 **[実装済]** 特定のrecordtypeをtext形式に変換
 
 ```
-y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conferences_ja --reverse-index
+y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conference_ja --reverse-index
 # 11. 長野祥大, 渡邊紀文, 武藤佳恭, (2013) "自発発火神経回路モデルを用いた注意下の神経回路の構築", 包括脳ネットワーク 夏のワークショップ.
 # 10. 長野祥大, 渡邊紀文, 青山敦, (2014) "視覚的注意の変化に対応する発火頻度分布入力時の自発発火回路の分析", 脳と心のメカニズム 第14回冬のワークショップ.
 # ...
@@ -64,7 +64,7 @@ y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type 
 **[実装済]** 特定のrecordtypeをviewを記述したファイルを使って変換
 
 ```
-y2x data.yml --viewfile bibtex.view --type conferences_ja
+y2x data.yml --viewfile bibtex.view --type conference_ja
 # @inproceedings{長野祥大2013,
 #   title={自発発火神経回路モデルを用いた注意下の神経回路の構築},
 #   author={長野祥大, 渡邊紀文, 武藤佳恭},
@@ -83,7 +83,7 @@ y2x data.yml --viewfile bibtex.view --type conferences_ja
 **[実装済]** 特定の著者を含むrecordのみ表示
 
 ```
-y2x data.yml --view '{id}. {authors}, {title}' --type conferences_ja --author '武藤佳恭'
+y2x data.yml --view '{id}. {authors}, {title}' --type conference_ja --author '武藤佳恭'
 # 1. 長野祥大, 渡邊紀文, 武藤佳恭, 自発発火神経回路モデルを用いた注意下の神経回路の構築
 ```
 
@@ -135,10 +135,10 @@ const loadRecords = require('y2x').loadRecords
 
 const records = loadRecords('data.yml')
 records
-  .typeIs(['papers', 'conferences'])
+  .typeOf(['paper', 'conference'])
   .view({
-    papers: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
-    conferences: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
+    paper: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
+    conference: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
   })
   .authoredBy('Yoshihiro Nagano')
   .sortBy('year', reverse=true)

@@ -1,0 +1,196 @@
+conferences:
+  -
+    title: Analysis of neural circuit for visual attention using lognormally distributed input
+    authors:
+      - Yoshihiro Nagano
+      - Norifumi Watanabe
+      - Atsushi Aoyama
+    year: 2014
+    conference: The 24th International Conference on Artificial Neural Networks
+    place: "Hamburg, Germany"
+    date: Sep. 15-19
+    proceeding: Artificial Neural Networks and Machine Learning-ICANN 2014
+    pages: 467-474
+    link: http://link.springer.com/chapter/10.1007/978-3-319-11179-7_59
+
+conferences_ja:
+  -
+    type: poster
+    title: 自発発火神経回路モデルを用いた注意下の神経回路の構築
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 武藤佳恭
+    year: 2013
+    conference: 包括脳ネットワーク 夏のワークショップ
+    place: "愛知, 日本"
+    date: 8月29日-9月1日
+  -
+    type: poster
+    title: 視覚的注意の変化に対応する発火頻度分布入力時の自発発火回路の分析
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 青山敦
+    year: 2014
+    conference: 脳と心のメカニズム 第14回冬のワークショップ
+    place: "北海道, 日本"
+    date: 1月8日-10日
+  -
+    type: oral
+    title: 視覚的注意課題における対数正規分布を用いた入力と神経回路の分析
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 青山敦
+    year: 2014
+    conference: ニューロコンピューティング研究会
+    place: "東京, 日本"
+    date: 3月17日-18日
+    proceeding: "電子情報通信学会技術研究報告, NC2013-146"
+    pages: 47-52
+  -
+    type: oral
+    title: 視覚的注意を実現する神経回路モデルの構築
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 青山敦
+    year: 2014
+    conference: 湘南藤沢学会 第12回研究発表大会
+    place: "東京, 日本"
+    date: 11月21-22日
+  -
+    type: poster
+    title: スパイク発火の位相限局を用いたMT野注意制御モデルのノイズ相関分析
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 青山敦
+    year: 2015
+    conference: 脳と心のメカニズム 第15回冬のワークショップ
+    place: "北海道, 日本"
+    date: 1月7日-9日
+  -
+    type: oral
+    title: 視覚的注意時の神経活動を誘起するトップダウンモジュレーションの計算論的検証
+    authors:
+      - 長野祥大
+      - 渡邊紀文
+      - 青山敦
+    year: 2015
+    conference: 日本生体医工学会専門別研究会 第12回マルチモーダル脳情報研究会
+    place: "東京, 日本"
+    date: 1月27日
+  -
+    type: poster
+    title: 不規則自発発火回路が示す入力駆動の集団振動
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 渡邊紀文
+      - 青山敦
+      - 岡田真人
+    year: 2015
+    conference: 第25回 日本神経回路学会 全国大会
+    place: "東京, 日本"
+    date: 9月2日-4日
+    proceeding: "第25回 日本神経回路学会 全国大会"
+    pages: 22-23
+  -
+    type: oral
+    title: 対数正規重みを持つ自発発火回路モデルの外部入力応答
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 渡邊紀文
+      - 青山敦
+      - 岡田真人
+    year: 2016
+    conference: 日本物理学会 第71回年次大会
+    place: "宮城, 日本"
+    date: 3月19日-22日
+  -
+    type: oral
+    title: 不規則自発発火活動を示す神経回路モデルの外部入力応答
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 渡邊紀文
+      - 青山敦
+      - 岡田真人
+    year: 2016
+    conference: ニューロコンピューティング研究会
+    place: "東京, 日本"
+    date: 3月22日-23日
+    proceeding: "電子情報通信学会技術研究報告, NC2015-85"
+    pages: 89-94
+  -
+    type: oral
+    title: 発火不規則性と集団振動現象を両立する神経回路モデルとその機能的意義
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 渡邊紀文
+      - 青山敦
+      - 岡田真人
+    year: 2016
+    conference: 第30回 人工知能学会全国大会
+    place: "福岡, 日本"
+    date: 6月6日-9日
+    proceeding: "2016年度 人工知能学会全国大会（第30回）論文集"
+    pages: 1G5-OS-11b-3in1
+  -
+    type: oral
+    title: 深層生成モデルにおける概念形成の数値的検証
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 岡田真人
+    year: 2017
+    conference: 日本物理学会 第72回年次大会
+    place: "大阪, 日本"
+    date: 3月17日-20日
+  -
+    type: oral
+    title: 深層生成モデルのサンプリングダイナミクスが実現する概念への引き込み
+    authors:
+      - 長野祥大
+      - 唐木田亮
+      - 岡田真人
+    year: 2017
+    conference: 第31回 人工知能学会全国大会
+    place: "愛知, 日本"
+    date: 5月23日-26日
+
+papers:
+  -
+    status: Published
+    title: Input Response of Neural Network Model with Lognormally Distributed Synaptic Weights
+    authors:
+      - Yoshihiro Nagano
+      - Ryo Karakida
+      - Norifumi Watanabe
+      - Atsushi Aoyama
+      - Masato Okada
+    year: 2016
+    journal: Journal of the Physical Society of Japan
+    number: 7
+    pages: "074001"
+    publisher: The Physical Society of Japan
+    link: http://journals.jps.jp/doi/abs/10.7566/JPSJ.85.074001
+
+awards:
+  - 2013年 包括脳ネットワーク 夏のワークショップ 若手優秀発表賞
+  - 2014年 山岸学生プロジェクト支援制度 慶應義塾大学 湘南藤沢キャンパス
+  - 2014年 慶應義塾大学 湘南藤沢キャンパス 優秀卒業プロジェクト
+  - 2017年 東京大学 大学院 新領域創成科学研究科長賞
+  - 2017-2020年 <a href="http://www.jsps.go.jp/" target="_blank">日本学術振興会 特別研究員 (DC1)</a>
+
+awards_en:
+  - Young research award, Summer workshop of Comprehensive Brain Science Network, 2013
+  - Yamagishi student grant, Keio University Shonan Fujisawa Campus, 2014
+  - Best Graduation Project, Keio University Shonan Fujisawa Campus, 2014
+  - Dean's prize, Graduate School of Frontier Sciences, The University of Tokyo, 2017
+  - <a href="http://www.jsps.go.jp/english/" target="_blank">JSPS Research Fellowship for Young Scientists (DC1)</a>, 2017-2020
+
