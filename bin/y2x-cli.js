@@ -39,7 +39,7 @@ function main() {
       return file
     }).replace(/\n+$/g,'')
   } else {
-    viewFmt = '{id}. {title}'
+    viewFmt = '{id}. [{type}] {title}'
   }
   const author = program.author
   const offset = program.offset

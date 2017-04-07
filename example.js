@@ -6,8 +6,6 @@ const viewFmt = {
   paper: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
   conference_ja: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
 }
-const offset = 1
-const revindex = false
 
 const records = loadRecords(filename)
 const text = records
