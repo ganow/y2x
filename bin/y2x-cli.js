@@ -2,55 +2,9 @@
 
 'use strict'
 
-const fs = require('fs')
-const yaml = require('js-yaml')
 var program = require('commander')
-
-/**
- * add format string function to str
- * from: http://phiary.me/javascript-string-format/
- */
-
-// 存在チェック
-if (String.prototype.format == undefined) {
-  /**
-   * フォーマット関数
-   */
-  String.prototype.format = function(arg)
-  {
-    // 置換関数
-    var rep_fn = undefined
-
-    // オブジェクトの場合
-    if (typeof arg == 'object') {
-      rep_fn = function(m, k) { return arg[k]; }
-    }
-    // 複数引数だった場合
-    else {
-      var args = arguments
-      rep_fn = function(m, k) { return args[ parseInt(k) ] }
-    }
-
-    return this.replace( /\{(\w+)\}/g, rep_fn )
-  }
-}
-
-function stringify(records, view, offset, reverse) {
-
-  if ( offset == null ) { offset = 1 }
-  if ( reverse == null ) { reverse = false }
-
-  return records.map((r, id) => {
-
-    const r_new = Object.assign({}, r, {
-      id: (reverse) ? records.length - id - 1 + offset : id + offset,
-      authors: r.authors.join(', '),
-      firstauthor: r.authors[0]
-    })
-
-    return view.format(r_new)
-  })
-}
+const fs = require('fs')
+const loadRecords = require('../index.js').loadRecords
 
 function main() {
 
@@ -59,13 +13,13 @@ function main() {
   // ########################
 
   // const filename = 'data.yml'
-  // const recordtype = 'conferences_ja'
+  // const recordType = 'conferences_ja'
   // const view = '{id}. {authors}, ({year}) "{title}", {conference}.'
   // const offset = 1
-  // const revindex = false
+  // const reverseIndex = false
 
   program
-    .version(require('./package.json').version)
+    .version(require('../package.json').version)
     .usage('<file> [options]')
     .option('--view <text>', 'format string for each record')
     .option('--viewfile <file>', 'file name of format string for each record')
@@ -76,31 +30,36 @@ function main() {
     .parse(process.argv);
 
   const filename = program.args[0]
-  const recordtype = program.type
-  const view = (program.view) ? program.view : fs.readFileSync(program.viewfile, 'utf-8', (err, file) => {
-    return file
-  }).replace(/\n+$/g,'')
+  const recordType = program.type
+  var viewFmt;
+  if (program.view) {
+    viewFmt = program.view
+  } else if (program.viewfile) {
+    viewFmt = fs.readFileSync(program.viewfile, 'utf-8', (err, file) => {
+      return file
+    }).replace(/\n+$/g,'')
+  } else {
+    viewFmt = '{id}. {title}'
+  }
+  const author = program.author
   const offset = program.offset
-  const revindex = program.reverseIndex
+  const reverseIndex = program.reverseIndex
 
-  // load file
-  const file = fs.readFileSync(filename, 'utf-8', (err, file) => {
-    return file
-  })
-  const data = yaml.safeLoad(file)
+  var records = loadRecords(filename)
 
-  // filter
-  var records = data[recordtype]
-  if ( program.author ) {
-    records = records.filter((r) => {
-      if ( r.authors.indexOf(program.author) >= 0 ) {
-        return r
-      }
-    })
+  records = records
+    .view(viewFmt)
+    .authoredBy(author)
+    .offset(offset)
+
+  if ( typeof recordType !== 'undefined' ) {
+    records = records.typeOf(recordType)
+  }
+  if ( reverseIndex ) {
+    records = records.reverseIndex()
   }
 
-  // stringify
-  const texts = stringify(records, view, offset, revindex)
+  const texts = records.render()
   texts.map((t) => {console.log(t)})
 }
 
