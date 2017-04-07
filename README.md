@@ -106,7 +106,7 @@ const texts = records
   .sortBy('year', reverse=true)
   .reverseIndex()
   .render()
-text.map((el) => console.log(el))
+texts.map((el) => console.log(el))
 ```
 
 
