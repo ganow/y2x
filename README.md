@@ -26,6 +26,8 @@ npm install -g
     --viewfile <file>  file name of format string for each record
     --author <text>    filter records with specific author
     --type <text>      record type
+    --sort-by <text>   entry which is used by sort
+    --reverse          flag for reverse sort
     --reverse-index    flag for reverse index
     --offset <n>       offset for index
 ```
