@@ -46,7 +46,7 @@ y2x data.yml --list-types
 **[未実装]** 特定のrecordtypeのentry一覧の表示
 
 ```
-y2x data.yml --list-entries conference_ja
+y2x data.yml --list-entries conference
 # type
 # title
 # authors
@@ -57,27 +57,26 @@ y2x data.yml --list-entries conference_ja
 **[実装済]** 特定のrecordtypeをtext形式に変換
 
 ```
-y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conference_ja --reverse-index
-# 11. 長野祥大, 渡邊紀文, 武藤佳恭, (2013) "自発発火神経回路モデルを用いた注意下の神経回路の構築", 包括脳ネットワーク 夏のワークショップ.
-# 10. 長野祥大, 渡邊紀文, 青山敦, (2014) "視覚的注意の変化に対応する発火頻度分布入力時の自発発火回路の分析", 脳と心のメカニズム 第14回冬のワークショップ.
-# ...
+y2x data.yml --view '{id}. {authors}, ({year}) "{title}", {conference}.' --type conference --reverse-index
+# 2. Diederik Kingma, Max Welling, (2013) "Auto-encoding Variational Bayes", ICLR.
+# 1. Ruslan Salakhutdinov, Geoffrey Hinton, (2009) "Deep Boltzmann Machines", AISTATS.
 ```
 
 **[実装済]** 特定のrecordtypeをviewを記述したファイルを使って変換
 
 ```
-y2x data.yml --viewfile bibtex.view --type conference_ja
-# @inproceedings{長野祥大2013,
-#   title={自発発火神経回路モデルを用いた注意下の神経回路の構築},
-#   author={長野祥大, 渡邊紀文, 武藤佳恭},
-#   booktitle={包括脳ネットワーク 夏のワークショップ},
+y2x data.yml --viewfile bibtex.view --type conference
+# @inproceedings{Diederik Kingma2013,
+#   title={Auto-encoding Variational Bayes},
+#   author={Diederik Kingma, Max Welling},
+#   booktitle={ICLR},
 #   year={2013}
 # }
-# @inproceedings{長野祥大2014,
-#   title={視覚的注意の変化に対応する発火頻度分布入力時の自発発火回路の分析},
-#   author={長野祥大, 渡邊紀文, 青山敦},
-#   booktitle={脳と心のメカニズム 第14回冬のワークショップ},
-#   year={2014}
+# @inproceedings{Ruslan Salakhutdinov2009,
+#   title={Deep Boltzmann Machines},
+#   author={Ruslan Salakhutdinov, Geoffrey Hinton},
+#   booktitle={AISTATS},
+#   year={2009}
 # }
 # ...
 ```
@@ -85,8 +84,8 @@ y2x data.yml --viewfile bibtex.view --type conference_ja
 **[実装済]** 特定の著者を含むrecordのみ表示
 
 ```
-y2x data.yml --view '{id}. {authors}, {title}' --type conference_ja --author '武藤佳恭'
-# 1. 長野祥大, 渡邊紀文, 武藤佳恭, 自発発火神経回路モデルを用いた注意下の神経回路の構築
+y2x data.yml --view '{id}. {authors}, {title}' --type conference --author 'Max Welling'
+# 1. Diederik Kingma, Max Welling, Auto-encoding Variational Bayes
 ```
 
 **[実装済]** パッケージとしてスクリプト内で使用する
@@ -102,7 +101,7 @@ const texts = records
     paper: '<li>{id}. {authors}, ({year}) "{title}", {journal}.</li>',
     conference: '<li>{id}. {authors}, ({year}) "{title}", {conference}.</li>'
   })
-  .authoredBy('Yoshihiro Nagano')
+  .authoredBy('Geoffrey Hinton')
   .sortBy('year', reverse=true)
   .reverseIndex()
   .render()
