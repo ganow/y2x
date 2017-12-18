@@ -1,6 +1,6 @@
 {
   "name": "y2x",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "translate yaml to any format with view string.",
   "main": "index.js",
   "scripts": {
